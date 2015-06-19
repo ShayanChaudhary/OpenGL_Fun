@@ -51,6 +51,7 @@ void Display::Update()
 		if (e.type == SDL_QUIT)
 			m_isClosed = true;
 	}
+	
 }
 
 bool Display::isClosed()
