@@ -1,11 +1,14 @@
 # OpenGL_Fun
 OpenGL fun with GLEW, SDL2 and GLM 
+##Libraries used 
 
 **GLEW** - load all OpenG functions for this system.
 
 **GLM**  - OpenGL Maths library.
 
 **SDL**  - cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D.
+
+**stb_image.h** - single file library for loading/decoding from file/memory. [Source.](https://github.com/nothings/stb)
 
 <!------------------------------------------------------------->
 ## My Notes - Graphics Pipeline: 
@@ -35,3 +38,5 @@ OpenGL expects 3 vertecies in sequence to represent a triangle.
 
 **shader.cpp** creates shaders from given vertex/fragment source, performs error handling and binds the shaders to OpenGL program.
 The basic source code for shaders is located in `./res/basicShaders[.vs/.fs]`.
+
+**texture.cpp** used to load textures using stb_image.h library and bind them for OpenGL to use. Code to actually apply the texture to verticies is located in the fragment shader file `./res/basicShader.fs`.
