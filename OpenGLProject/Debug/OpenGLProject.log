@@ -1,4 +1,4 @@
-﻿Build started 19/06/2015 05:29:40.
+﻿Build started 03/07/2015 14:11:37.
      1>Project "W:\Github\OpenGL_Fun\OpenGLProject\OpenGLProject.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt shader.cpp
@@ -8,9 +8,10 @@
          Debug\main.obj
          Debug\mesh.obj
          Debug\shader.obj
+         Debug\texture.obj
          OpenGLProject.vcxproj -> W:\Github\OpenGL_Fun\Debug\OpenGLProject.exe
      1>Done Building Project "W:\Github\OpenGL_Fun\OpenGLProject\OpenGLProject.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.90
+Time Elapsed 00:00:00.79

@@ -17,7 +17,13 @@ Shader::Shader(const std::string& fileName)
 	for (unsigned int i = 0; i < NUM_SHADERS; i++)//attach shaders to program
 		glAttachShader(m_program, m_shaders[i]);
 
-	glBindAttribLocation(m_program, 0, "position");
+	/*
+	 Binds variables so shaders can access it. Without this shaders can not make sense of "attribute vec3 position;" 
+	 for example. This binds position to attribute 1 and you can see mesh.cpp we bind position to attribute 0
+	 using glVertexAttribPointer(0,..) and texCoord to 1 using glVertexAttribPointer(1,...)
+	*/
+	glBindAttribLocation(m_program, 0, "position");  
+	glBindAttribLocation(m_program, 1, "texCoord");
 	glLinkProgram(m_program);
 	CheckShaderError(m_program, GL_LINK_STATUS, true, "Error: Program linking failed:  ");
 

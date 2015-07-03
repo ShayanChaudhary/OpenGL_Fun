@@ -3,7 +3,7 @@
 #include "display.h"
 #include "mesh.h"
 #include "shader.h"
-
+#include "texture.h"
 #define FPS_INTERVAL 1.0 //seconds.
 
 Uint32 fps_lasttime = SDL_GetTicks(); //the last recorded time.
@@ -25,20 +25,19 @@ void UpdateFps()
 
 int main()
 {
-	Display display(800, 600, "Hello World!");
-	
-	Shader shader("./res/basicShader");
-
-	Vertex verticies[] = { Vertex(glm::vec3(-0.5, -0.5, 0)),
-					Vertex(glm::vec3(0, 0.5, 0)),
-					Vertex(glm::vec3(0.5, -0.5, 0)) };
-	
+	Vertex verticies[] = {
+		Vertex(glm::vec3(-0.5, -0.5, 0.0),		glm::vec2(0.0, 0.0)),
+		Vertex(glm::vec3( 0.0,  0.5, 0.0),		glm::vec2(0.5, 1.0)),
+		Vertex(glm::vec3( 0.5, -0.5, 0.0),		glm::vec2(1.0, 0.0)) };
+	Display display(1200, 800, "Hello World!");
 	Mesh mesh(verticies, sizeof(verticies) / sizeof(verticies[0]));
+	Shader shader("./res/basicShader");//load shaders
+	Texture texture("./res/bricks.jpg");
 
 	while (!display.isClosed())	{
 		display.Clear(0.0f, 0.15f, 0.3f, 1.f);
 		shader.Bind();
-
+		texture.Bind(0);
 		mesh.Draw();
 		display.Update();
 		
