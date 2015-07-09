@@ -1,7 +1,8 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
-#include <SDL\SDL.h>
+
+#include <SDL2/SDL.h>
 #undef main
 #include <string>
 
@@ -21,7 +22,7 @@ private:
 	Display(const Display& other) {}
 	Display& operator=(const Display& other) {}
 	SDL_Window* m_window;
-	//OS has direct controll over window, this context allows the 
+	//OS has direct co""ntroll over window, this context allows the
 	//gpu to access and draw to window.
 	SDL_GLContext m_glContext;
 	bool m_isClosed;

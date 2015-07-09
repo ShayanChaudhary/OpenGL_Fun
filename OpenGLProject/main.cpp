@@ -4,7 +4,10 @@
 #include "mesh.h"
 #include "shader.h"
 #include "texture.h"
+#include "transform.h"
+
 #define FPS_INTERVAL 1.0 //seconds.
+
 
 Uint32 fps_lasttime = SDL_GetTicks(); //the last recorded time.
 Uint32 fps_current; //the current FPS.
@@ -33,16 +36,28 @@ int main()
 	Mesh mesh(verticies, sizeof(verticies) / sizeof(verticies[0]));
 	Shader shader("./res/basicShader");//load shaders
 	Texture texture("./res/bricks.jpg");
+    Transform transform;
+
+    float counter = 0.0f;
 
 	while (!display.isClosed())	{
 		display.Clear(0.0f, 0.15f, 0.3f, 1.f);
+
+        float sincounter = sinf(counter);
+        float coscounter = cosf(counter);
+
+
+        transform.GetPos().x = sincounter;
+        transform.GetRot().z = counter * 200;
+        transform.SetScale(glm::vec3(coscounter, coscounter, coscounter));
+
 		shader.Bind();
 		texture.Bind(0);
+		shader.Update(transform);//all verticies are multiplied by transform matrix
 		mesh.Draw();
 		display.Update();
-		
+        counter +=0.01f;
 		UpdateFps();
-
 	}
 	return 0;
 }
